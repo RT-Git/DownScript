@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>Upload</title>
+</head>
+<body>
+
+
+	<form action="write_file.php" method="get">
+
+  		<input id="box" type="text" name="link"><br>
+  		<input id="button" type="submit" value="Upload">
+
+  	</form>	
+</body>
+</html>
