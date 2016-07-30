@@ -112,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
                 FileOutputStream stream = new FileOutputStream(file);
                 try {
                     stream.write(filename.getBytes());
-                    stream.write(" - n".getBytes());
                     stream.write("\n".getBytes());
                     stream.close();
                 } catch (IOException e) {
