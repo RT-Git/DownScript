@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ThemeOverlay.LightButton" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorButtonNormal">#2899F1</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

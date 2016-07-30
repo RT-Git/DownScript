@@ -11,9 +11,9 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -44,12 +44,18 @@ public class MainActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+
                 filename = e.getText().toString();
                 showProgress(true);
                 mAuthTask = new Upload();
                 mAuthTask.execute((Void)null);
                 e.setText("");
             }
+
+
         });
 
 
@@ -105,10 +111,9 @@ public class MainActivity extends AppCompatActivity {
 
                 FileOutputStream stream = new FileOutputStream(file);
                 try {
-                    stream.write("<pre>".getBytes());
                     stream.write(filename.getBytes());
                     stream.write(" - n".getBytes());
-                    stream.write("</pre>".getBytes());
+                    stream.write("\n".getBytes());
                     stream.close();
                 } catch (IOException e) {
 
@@ -127,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                 client.login("u157992303","ritesh@6969");
                 client.setPassive(true);
                 client.changeDirectory("/public_html/");
-                client.append(new File(context.getFilesDir(), "links.html"));
+                client.append(new File(context.getFilesDir(), "links.txt"));
                 System.out.println("Uploading");
             }
 
