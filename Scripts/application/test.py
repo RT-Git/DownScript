@@ -1,19 +1,6 @@
 import downloader as d
 
+l = "http://sv1.bia2dl.xyz/Series/Mr%20Robot/s1/Mr.%20Robot%20S01E01%20HDTV%20480p(Bia2Movies).mkv"
 
-l = "https://www.youtube.com/watch?v=963TE8mh8VA"
-l2 = "http://randomusik.tk/songs/4.mp3"
-first = d.download(l2)
-
-print first.get_headers()['content-length']
-
-first.start_download()
-
-# import requests
-
-# r = requests.get("http://randomusik.tk/songs/4.mp3")
-
-# with open('test.mp3', 'wb') as f:
-# 	for chunk in r.iter_content(chunk_size=1024): 
-# 		if chunk:
-# 			f.write(chunk)
+one = d.Download(l)
+one.start()
