@@ -33,6 +33,7 @@ class Download:
 		self.status = 1		#	Downloading
 		size = r.headers['content-length']
 		with open(self.l_path+f_name, 'wb') as f:
+			print "Downloaded : "
 			for chunk in r.iter_content(chunk_size=1024): 
 				tmp = tmp + 1024.0
 				print (tmp/float(size))*100.0,
@@ -40,4 +41,4 @@ class Download:
 				if chunk:
 					f.write(chunk)
 			f.flush()
-		print "Download Complete!"
+		print "\nDownload Complete!"
